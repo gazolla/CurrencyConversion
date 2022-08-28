@@ -15,11 +15,24 @@ struct ContentView: View {
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
                 Text("Hello, world!")
+                Spacer()
             }
             .padding()
             .navigationTitle("Currency Conversion")
         }
         
+    }
+    
+    @ViewBuilder func currencyView(currency:Currency) -> some View{
+        HStack{
+            Image(currency.countryCode!)
+            VStack(alignment:.leading){
+                Text("\(currency.currencyCode!) - \(currency.currencyName!)")
+                Text(currency.countryName ?? "")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+            }
+        }
     }
 }
 

@@ -14,6 +14,8 @@
 		C3A72D5F28BBE64900E2C368 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D5E28BBE64900E2C368 /* Currency.swift */; };
 		C3A72D6128BBE67500E2C368 /* CurencyDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6028BBE67500E2C368 /* CurencyDataService.swift */; };
 		C3A72D6328BBE72100E2C368 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6228BBE72100E2C368 /* CurrencyViewModel.swift */; };
+		C3A72D6528BC0A0200E2C368 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6428BC0A0200E2C368 /* Conversion.swift */; };
+		C3A72D6728BC0A8800E2C368 /* ConversionRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6628BC0A8800E2C368 /* ConversionRates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		C3A72D5E28BBE64900E2C368 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		C3A72D6028BBE67500E2C368 /* CurencyDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurencyDataService.swift; sourceTree = "<group>"; };
 		C3A72D6228BBE72100E2C368 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		C3A72D6428BC0A0200E2C368 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		C3A72D6628BC0A8800E2C368 /* ConversionRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C3A72D5E28BBE64900E2C368 /* Currency.swift */,
+				C3A72D6428BC0A0200E2C368 /* Conversion.swift */,
 			);
 			path = DataObejcts;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				C3A72D6028BBE67500E2C368 /* CurencyDataService.swift */,
+				C3A72D6628BC0A8800E2C368 /* ConversionRates.swift */,
 			);
 			path = DataServices;
 			sourceTree = "<group>";
@@ -181,7 +187,9 @@
 				C3A72D5F28BBE64900E2C368 /* Currency.swift in Sources */,
 				C3A72D6328BBE72100E2C368 /* CurrencyViewModel.swift in Sources */,
 				C3A72D4F28BBE22E00E2C368 /* ContentView.swift in Sources */,
+				C3A72D6528BC0A0200E2C368 /* Conversion.swift in Sources */,
 				C3A72D4D28BBE22E00E2C368 /* CurrencyConversionApp.swift in Sources */,
+				C3A72D6728BC0A8800E2C368 /* ConversionRates.swift in Sources */,
 				C3A72D6128BBE67500E2C368 /* CurencyDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
