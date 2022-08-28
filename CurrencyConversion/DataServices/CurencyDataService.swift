@@ -10,7 +10,7 @@ import Foundation
 class CurrencyDataService {
     static let instance = CurrencyDataService()
     
-    var currencies:[Currency] = []
+    @Published var currencies:[Currency] = []
     
     private init(){
         loadEveryCountryWithCurrency()
