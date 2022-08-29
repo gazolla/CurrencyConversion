@@ -7,14 +7,14 @@
 
 import Foundation
 
-class Currency:Identifiable {
+struct Currency:Identifiable {
+    var id = UUID()
     
     var countryName:String?
     var countryCode:String?
     var currencyCode:String?
     var currencyName:String?
     var currencySymbol:String?
-    
  }
 
 extension Currency:CustomStringConvertible {

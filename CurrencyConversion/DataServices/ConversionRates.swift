@@ -52,6 +52,7 @@ class ConversionRates {
             let str = String(decoding: conversionData, as: UTF8.self)
             print(str)
             let result = JSONtoOBJ(json: conversionData)
+            return result
         } catch {
             print(error)
         }

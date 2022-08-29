@@ -21,7 +21,7 @@ class CurrencyDataService {
         let localeCurrencies = Locale.commonISOCurrencyCodes
         for currencyCode in localeCurrencies {
             
-            let currency = Currency()
+            var currency = Currency()
             currency.currencyCode = currencyCode
             
             let currencyLocale = Locale(identifier: currencyCode)

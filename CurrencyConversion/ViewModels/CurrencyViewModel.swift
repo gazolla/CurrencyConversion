@@ -16,10 +16,6 @@ class CurrencyViewModel: ObservableObject {
     let currencyService = CurrencyDataService.instance
     
     init(){
-        addSubscribers()
-    }
-    
-    func addSubscribers(){
         filterCurrency(searchQuery: "")
     }
     
