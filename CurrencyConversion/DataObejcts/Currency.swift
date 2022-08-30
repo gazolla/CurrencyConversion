@@ -15,6 +15,11 @@ struct Currency:Identifiable {
     var currencyCode:String?
     var currencyName:String?
     var currencySymbol:String?
+    
+    var currencyShortName:String? {
+        let words = currencyName!.byWords
+        return String(describing: words.last!)
+    }
  }
 
 extension Currency:CustomStringConvertible {
