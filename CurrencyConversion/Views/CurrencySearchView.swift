@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CurrencySearchView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var cvm = CurrencyViewModel()
+    @StateObject var cvm = CurrencyViewModel.instance
     @State var searchQuery = ""
     @State var setCurrency:((Currency)->())
     
@@ -39,6 +39,9 @@ struct CurrencySearchView: View {
         .searchable(text: $searchQuery)
         .onChange(of: searchQuery) { newValue in
             cvm.filterCurrency(searchQuery: newValue)
+        }
+        .onAppear{
+            cvm.filterCurrency(searchQuery:"")
         }
     }
 

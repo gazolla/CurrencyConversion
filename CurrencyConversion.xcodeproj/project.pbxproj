@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C373EF2928BD248A006472B0 /* ConversionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373EF2828BD248A006472B0 /* ConversionListView.swift */; };
 		C373EF2C28BD2A77006472B0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373EF2B28BD2A77006472B0 /* Extensions.swift */; };
+		C38DC66228BE87BD00D42234 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38DC66128BE87BD00D42234 /* History.swift */; };
 		C3A72D4D28BBE22E00E2C368 /* CurrencyConversionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D4C28BBE22E00E2C368 /* CurrencyConversionApp.swift */; };
 		C3A72D4F28BBE22E00E2C368 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D4E28BBE22E00E2C368 /* ContentView.swift */; };
 		C3A72D5128BBE23100E2C368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3A72D5028BBE23100E2C368 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		C373EF2828BD248A006472B0 /* ConversionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionListView.swift; sourceTree = "<group>"; };
 		C373EF2B28BD2A77006472B0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C38DC66128BE87BD00D42234 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		C3A72D4928BBE22D00E2C368 /* CurrencyConversion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConversion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3A72D4C28BBE22E00E2C368 /* CurrencyConversionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionApp.swift; sourceTree = "<group>"; };
 		C3A72D4E28BBE22E00E2C368 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				C3A72D5E28BBE64900E2C368 /* Currency.swift */,
 				C3A72D6428BC0A0200E2C368 /* Conversion.swift */,
+				C38DC66128BE87BD00D42234 /* History.swift */,
 			);
 			path = DataObejcts;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				C373EF2928BD248A006472B0 /* ConversionListView.swift in Sources */,
 				C3A72D5F28BBE64900E2C368 /* Currency.swift in Sources */,
 				C3A72D6328BBE72100E2C368 /* CurrencyViewModel.swift in Sources */,
+				C38DC66228BE87BD00D42234 /* History.swift in Sources */,
 				C3A72D4F28BBE22E00E2C368 /* ContentView.swift in Sources */,
 				C3A72D6528BC0A0200E2C368 /* Conversion.swift in Sources */,
 				C373EF2C28BD2A77006472B0 /* Extensions.swift in Sources */,

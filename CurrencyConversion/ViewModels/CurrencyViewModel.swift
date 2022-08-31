@@ -10,16 +10,19 @@ import Combine
 
 class CurrencyViewModel: ObservableObject {
     
+    static let instance = CurrencyViewModel()
+    
     @Published var CurrencyData:[Currency] = []
     @Published var conversion:Conversion?
     @Published var message:Message?
+    @Published var conversionHistory:[History] = []
 
     var cancellables = Set<AnyCancellable>()
     
     let currencyService = CurrencyDataService.instance
     let conversionService = ConversionRates.instance
     
-    init(){
+    private init(){
         filterCurrency(searchQuery: "")
     }
     
@@ -40,8 +43,11 @@ class CurrencyViewModel: ObservableObject {
     
     @MainActor
     func conversion(from:Currency, to:Currency) async {
-        if let conversion = await conversionService.fetchConversion(to:to, from:from, amount: 0.00) {
+        let (conversion, historyItem) = await conversionService.fetchConversion(to:to, from:from, amount: 0.00)
+        if let conversion, let historyItem {
             self.conversion = conversion
+            self.conversionHistory.append(historyItem)
+            print("add history")
         } else {
             self.message = conversionService.lastMessage
             conversionService.lastMessage = nil
@@ -50,5 +56,33 @@ class CurrencyViewModel: ObservableObject {
     
     func clearResult(){
         self.conversion = nil
+    }
+   
+    
+    func loadConversions() {
+        do{
+            if let data = UserDefaults.standard.data(forKey: "conversionHistory"){
+                let decoder = JSONDecoder()
+                self.conversionHistory = try decoder.decode([History].self, from:data)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func saveConversions() {
+        do{
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(self.conversionHistory.isEmpty ? [History](): self.conversionHistory)
+            UserDefaults.standard.set(data, forKey: "conversionHistory")
+
+        } catch {
+            print(error)
+        }
+    }
+
+    
+    func deleteConversion(at indexSet:IndexSet){
+        conversionHistory.remove(atOffsets: indexSet)
     }
 }

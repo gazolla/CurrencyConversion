@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var isSearching = false
     @State private var isShowMessage = false
     
-    @StateObject private var cvm = CurrencyViewModel()
+    @StateObject private var cvm = CurrencyViewModel.instance
     
     @State private var toCurrency:Currency?
     @State private var fromCurrency:Currency?
@@ -54,8 +54,19 @@ struct ContentView: View {
                 showSearchButton
             }
             Spacer()
+            
+            ConversionListView(history: $cvm.conversionHistory)
+                
         }
         .embedInNavigationView()
+        .onAppear{
+            cvm.loadConversions()
+            print("load history")
+        }
+        .onChange(of: cvm.conversionHistory) { _ in
+            cvm.saveConversions()
+            print("save history")
+        }
     }
 }
 

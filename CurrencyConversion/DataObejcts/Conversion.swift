@@ -18,7 +18,7 @@ import Foundation
      }
  }
 */
-struct Conversion: Identifiable, Codable {
+struct Conversion: Identifiable, Codable, Equatable {
     var id = UUID()
     var success:Bool?
     var timestamp:Int?
@@ -58,6 +58,10 @@ struct Conversion: Identifiable, Codable {
     
     var rateValue:String{
         return "\(rates?.first?.value ?? 0.00)"
+    }
+    
+    static func == (lhs: Conversion, rhs: Conversion) -> Bool {
+        lhs.id == rhs.id
     }
 }
 
