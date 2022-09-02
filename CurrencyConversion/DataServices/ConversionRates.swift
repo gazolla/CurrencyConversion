@@ -15,7 +15,7 @@ class ConversionRates {
     
     let apiKey = "1KpzbD4bZdUNBDf214M6ao1S4gD7BGGX"
     var lastMessage:Message?
-    var conversionsHistory:[Conversion] = []
+    var conversionsHistory:[History] = []
     
     func buildRequest(to:String, from:String, amount:Decimal)->URLRequest?{
         var uc = URLComponents()
@@ -58,9 +58,9 @@ class ConversionRates {
         return nil
     }
     
-    func fetchConversion(to:Currency, from:Currency, amount:Decimal) async -> Conversion? {
+    func fetchConversion(to:Currency, from:Currency, amount:Decimal) async -> (Conversion?, History?) {
         guard let request = buildRequest(to: to.currencyCode!, from: from.currencyCode!, amount: amount) else {
-            return nil
+            return (nil, nil)
         }
         do{
             let (conversionData, _) = try  await URLSession.shared.data(for: request)
@@ -70,15 +70,14 @@ class ConversionRates {
             if str.contains("message"){
                 self.lastMessage = JSONtoMSG(json: conversionData)
             } else {
-                var result = JSONtoOBJ(json: conversionData)
-                result?.baseCountryCode = from.currencyCode
-                result?.ratedCountryCode = to.currencyCode
-                return result
+                let result1 = JSONtoOBJ(json: conversionData)
+                let result2 = History(conversion: result1!, baseCurrency: from, ratedCurrency: to)
+                return (result1, result2)
             }
         } catch {
             print(error)
         }
-        return nil
+        return (nil, nil)
     }
     
     func mockData() throws -> String  {
@@ -96,24 +95,5 @@ class ConversionRates {
         return result
     }
     
-    func loadConversions() throws{
-        if let data = UserDefaults.standard.data(forKey: "conversions"){
-            let decoder = JSONDecoder()
-            self.conversionsHistory = try decoder.decode([Conversion].self, from:data)
-        }
-    }
-    
-    func saveConversions() throws {
-        let encoder = JSONEncoder()
-        let data = try encoder.encode(self.conversionsHistory.isEmpty ? [Conversion](): self.conversionsHistory)
-        UserDefaults.standard.set(data, forKey: "conversions")
-    }
-    
-    func addConversion(conversion:Conversion){
-        self.conversionsHistory.append(conversion)
-    }
-    
-    func deleteConversion(at indexSet:IndexSet){
-        self.conversionsHistory.remove(atOffsets: indexSet)
-    }
+ 
 }
