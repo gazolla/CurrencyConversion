@@ -13,7 +13,7 @@ class ConversionRates {
     static let instance = ConversionRates()
     private init(){}
     
-    let apiKey = "1KpzbD4bZdUNBDf214M6ao1S4gD7BGGX"
+    let apiKey = ""  //<<<=== ADD YOUR APIKEY HERE !!!
     var lastMessage:Message?
     var conversionsHistory:[History] = []
     

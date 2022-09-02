@@ -58,6 +58,7 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         }))
                 }
+                
                 .padding()
                 if let conversion = cvm.conversion {
                     conversionView(conversion: conversion)

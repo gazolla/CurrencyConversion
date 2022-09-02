@@ -20,6 +20,7 @@
 		C3A72D6528BC0A0200E2C368 /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6428BC0A0200E2C368 /* Conversion.swift */; };
 		C3A72D6728BC0A8800E2C368 /* ConversionRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6628BC0A8800E2C368 /* ConversionRates.swift */; };
 		C3A72D6928BC409900E2C368 /* CurrencySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A72D6828BC409800E2C368 /* CurrencySearchView.swift */; };
+		C3FD566328C25C90004E5DD7 /* CurrencyConversion.gif in Resources */ = {isa = PBXBuildFile; fileRef = C3FD566228C25C90004E5DD7 /* CurrencyConversion.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		C3A72D6428BC0A0200E2C368 /* Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
 		C3A72D6628BC0A8800E2C368 /* ConversionRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionRates.swift; sourceTree = "<group>"; };
 		C3A72D6828BC409800E2C368 /* CurrencySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencySearchView.swift; sourceTree = "<group>"; };
+		C3FD566228C25C90004E5DD7 /* CurrencyConversion.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = CurrencyConversion.gif; sourceTree = "<group>"; };
+		C3FD566428C25CE4004E5DD7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 		C3A72D4028BBE22D00E2C368 = {
 			isa = PBXGroup;
 			children = (
+				C3FD566428C25CE4004E5DD7 /* README.md */,
+				C3FD566228C25C90004E5DD7 /* CurrencyConversion.gif */,
 				C3A72D4B28BBE22D00E2C368 /* CurrencyConversion */,
 				C3A72D4A28BBE22D00E2C368 /* Products */,
 			);
@@ -194,6 +199,7 @@
 			files = (
 				C3A72D5428BBE23100E2C368 /* Preview Assets.xcassets in Resources */,
 				C3A72D5128BBE23100E2C368 /* Assets.xcassets in Resources */,
+				C3FD566328C25C90004E5DD7 /* CurrencyConversion.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
