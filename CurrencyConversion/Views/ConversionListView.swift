@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ConversionListView: View {
-    @Binding var history:[History]
+    @ObservedObject var cvm:CurrencyViewModel
+    
     var body: some View {
         List{
-            Section(header: Text("History")) {
-                ForEach(history){ item in
+            Section(header: header()) {
+                ForEach(cvm.conversionHistory){ item in
                    
                         VStack(alignment: .leading){
                             HStack{
@@ -63,6 +64,28 @@ struct ConversionListView: View {
         .scrollContentBackground(.hidden)
         .listStyle(.plain)
     }
+    
+    @ViewBuilder func header() -> some View {
+        HStack{
+            Text("History")
+            Spacer()
+            if !cvm.conversionHistory.isEmpty {
+                Button {
+                    cvm.conversionHistory = [History]()
+                    cvm.saveConversions()
+                } label: {
+                    Text("clear")
+                        .padding(EdgeInsets(top: 2, leading: 10, bottom: 2, trailing: 10))
+                        .foregroundColor(.white)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color( #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)))
+                        )
+                }
+                
+            }
+        }
+    }
 }
 
 struct wrapper: View{
@@ -74,7 +97,8 @@ struct wrapper: View{
         History(conversion: Conversion(success: true, timestamp: 0, base: "USD", date: "2022-08-27", rates: ["BRL" : 5.0232], baseCountryCode: "US", ratedCountryCode: "BR"), baseCurrency: Currency(countryName:"United States", countryCode: "US", currencyCode: "USD", currencyName: "Dollar", currencySymbol: "US$"), ratedCurrency: Currency(countryName: "Brazil", countryCode: "BR", currencyCode: "BRL", currencyName: "Real", currencySymbol: "R$"))
     ]
     var body: some View {
-        ConversionListView(history: $data)
+        //ConversionListView(cvm: $data)
+        Text("Hello")
     }
 }
 

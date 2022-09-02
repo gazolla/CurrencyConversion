@@ -49,7 +49,14 @@ struct ContentView: View {
                             print("ssc: \(newValue)")
                         }
                         .navigationBarTitle("Currency Conversion", displayMode: .inline)
-                        .navigationBarItems(leading: isSearching ? ProgressView() : nil)
+                        .navigationBarItems(leading: isSearching ? ProgressView().foregroundColor(.black) : nil, trailing: Button(action: {
+                             toCurrency = nil
+                             fromCurrency = nil
+                             cvm.clearResult()
+                        }, label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.black)
+                        }))
                 }
                 .padding()
                 if let conversion = cvm.conversion {
@@ -64,7 +71,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 
-                ConversionListView(history: $cvm.conversionHistory)
+                ConversionListView(cvm: cvm)
                 
             }
             
