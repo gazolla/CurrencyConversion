@@ -3,7 +3,7 @@
 iOS app using Fixer API of currencies values to fetch currencies conversions values.
 
 <p align="center">
-  <img alt="main Branch" src="https://raw.githubusercontent.com/gazolla/CurrencyConversion/master/CurrencyConversion.gif" width="35%">
+  <img alt="main Branch" src="https://raw.githubusercontent.com/gazolla/CurrencyConversion/master/CurrencyConversion.gif">
 </p>
 
 ### Supported Platforms
