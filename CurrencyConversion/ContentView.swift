@@ -21,61 +21,57 @@ struct ContentView: View {
     @State private var fromCurrency:Currency?
     
     var body: some View {
-        ZStack{
             VStack{
-                Rectangle()
-                    .fill(LinearGradient(gradient: Gradient(colors:[Color(#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)),Color( #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(height:UIScreen.main.bounds.height * 0.5)
-                Spacer()
-            }
-            .ignoresSafeArea()
-                
-            VStack{
-                showBasicTopView {
-                    showCurrencies
-                        .sheet(isPresented: $isShowingSearchCurrency, content: {
-                            if selectSearchCurrency == .from{
-                                CurrencySearchView { from in
-                                    self.fromCurrency = from
+                VStack{
+                    showBasicTopView {
+                        showCurrencies
+                            .sheet(isPresented: $isShowingSearchCurrency, content: {
+                                if selectSearchCurrency == .from{
+                                    CurrencySearchView { from in
+                                        self.fromCurrency = from
+                                    }
+                                } else if selectSearchCurrency == .to{
+                                    CurrencySearchView { to in
+                                        self.toCurrency = to
+                                    }
                                 }
-                            } else if selectSearchCurrency == .to{
-                                CurrencySearchView { to in
-                                    self.toCurrency = to
-                                }
+                            })
+                            .padding()
+                            .onChange(of: selectSearchCurrency) { newValue in
+                                print("ssc: \(newValue)")
                             }
-                        })
-                        .padding()
-                        .onChange(of: selectSearchCurrency) { newValue in
-                            print("ssc: \(newValue)")
-                        }
-                        .navigationBarTitle("Currency Conversion", displayMode: .inline)
-                        .navigationBarItems(leading: isSearching ? ProgressView().foregroundColor(.black) : nil, trailing: Button(action: {
-                             toCurrency = nil
-                             fromCurrency = nil
-                             cvm.clearResult()
-                        }, label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.black)
-                        }))
-                }
-                
-                .padding()
-                if let conversion = cvm.conversion {
-                    conversionView(conversion: conversion)
-                } else if isShowMessage {
-                    if let message = cvm.message {
-                        Spacer()
-                        showMessage(message: message)
+                            .navigationBarTitle("Currency Conversion", displayMode: .inline)
+                            .navigationBarItems(leading: isSearching ? ProgressView().foregroundColor(.black) : nil, trailing: Button(action: {
+                                toCurrency = nil
+                                fromCurrency = nil
+                                cvm.clearResult()
+                            }, label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.black)
+                            }))
                     }
-                } else {
-                    showSearchButton
+                     .padding()
+                    if let conversion = cvm.conversion {
+                        conversionView(conversion: conversion)
+                    } else if isShowMessage {
+                        if let message = cvm.message {
+                            Spacer()
+                            showMessage(message: message)
+                        }
+                    } else {
+                        showSearchButton
+                    }
+                }
+                .background{
+                    GeometryReader{ geo in
+                        Rectangle()
+                            .fill(LinearGradient(gradient: Gradient(colors:[Color(#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)),Color( #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .edgesIgnoringSafeArea(.top)
+                    }
                 }
                 Spacer()
-                
                 ConversionListView(cvm: cvm)
-                
             }
-            
             .onAppear{
                 cvm.loadConversions()
                 print("load history")
@@ -84,9 +80,8 @@ struct ContentView: View {
                 cvm.saveConversions()
                 print("save history")
             }
+            .embedInNavigationView()
         }
-        .embedInNavigationView()
-    }
 }
 
 enum SelectSearchCurrency {
